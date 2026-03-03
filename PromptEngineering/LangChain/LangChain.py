@@ -10,6 +10,3 @@ def main():
     ]
     response = chat.invoke(messages)
     print(response.content)
-
-if __name__ == "__main__":
-    main()
