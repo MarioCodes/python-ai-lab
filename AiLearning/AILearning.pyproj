@@ -26,12 +26,12 @@
   <ItemGroup>
     <Compile Include="LangChain/LangChain.py" />
     <Compile Include="LangChain/LangChainExpressionLanguage.py" />
-    <Compile Include="InsertAndQueryVectorDatabase/QueryTextFromCosmos.py" />
-    <Compile Include="InsertAndQueryVectorDatabase/InsertEmbeddingsIntoCosmosDB.py" />
-    <Compile Include="Rag/CallToDoQuestionAndUseRag.py" />
-    <Compile Include="Rag/CallToInsertChunksIntoCosmos.py" />
-    <Compile Include="CallToOpenAI.py" />
-	<Compile Include="ManualCallToGetEmbeddingsFromText.py" />
+    <Compile Include="InsertAndQueryVectorDatabase/QueryVectorialDB.py" />
+    <Compile Include="InsertAndQueryVectorDatabase/InsertEmbeddings.py" />
+    <Compile Include="Rag/AskWithRagContext.py" />
+    <Compile Include="Rag/ChunkFilesIntoCosmos.py" />
+    <Compile Include="Testing/CallToOpenAI.py" />
+	<Compile Include="Testing/ManualCallToGetEmbeddingsFromText.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|VisualStudio|pythoncore-3.14-64" />

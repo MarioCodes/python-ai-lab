@@ -58,7 +58,8 @@ def requireEnvVar(name):
         raise EnvironmentError(f"{name} is not set")
     return value
 
-# TODO: check and think how to check if documents have already been uploaded to CosmosDB. I need to avoid duplicates and stale information 
+# TODO: check and think how to check if documents have already been uploaded to CosmosDB. I need to avoid duplicates and stale information
+# TODO: to improve add to items date of the document so I can flavour and filter for recent documents later on (think of other metadata)
 def main():
     foundry_url = requireEnvVar('FOUNDRY_URL') 
     foundry_key = requireEnvVar('FOUNDRY_KEY')
@@ -67,7 +68,7 @@ def main():
 
     # load all PDFs we want to use for the RAG
     
-    # TODO: manually review this loader to check it works
+    # TODO: manually review this loader to check it works as I expect
     loader = PyPDFDirectoryLoader("./Rag/knowledge_files/")
     docs = loader.load()
     if not docs:
@@ -75,8 +76,12 @@ def main():
         return
 
     # chunk the text of the PDFs into smaller pieces with an overlap
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
-    chunks = text_splitter.split_documents(docs)
+    chunk_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=500, 
+        chunk_overlap=100,
+        separators=["\n\n", "\n", ". ", " ", ""]
+    )
+    chunks = chunk_splitter.split_documents(docs)
 
     # clean all chunks up-front
     cleaned_texts = []
