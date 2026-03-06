@@ -18,23 +18,27 @@ Config:
 
 I run this through poetry with 'poetry run x'
 """
+import os
+import configparser
 from openai import AzureOpenAI
 from azure.cosmos import CosmosClient
 from langchain_openai import AzureChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-import os
+
+config = configparser.ConfigParser()
+config.read("settings.ini")
 
 def embedQuery(endpoint, key, text):
     client = AzureOpenAI(
         api_key=key,
         azure_endpoint=endpoint,
-        api_version="2023-05-15",
-        azure_deployment="text-embedding-3-large",
+        api_version=config["embedding_model"]["api_version"],
+        azure_deployment=config["embedding_model"]["model"],
     )
     response = client.embeddings.create(
         input=[text],
-        model="text-embedding-3-large"
+        model=config["embedding_model"]["model"]
     )
     return response.data[0].embedding
 
@@ -63,17 +67,19 @@ def requireEnvVar(name):
     return value
 
 def main():
+    question = input("Ask a question using RAG: ")
+    if not question.strip():
+        print("No question provided.")
+        return
+
     foundry_url = requireEnvVar('FOUNDRY_URL')
     foundry_key = requireEnvVar('FOUNDRY_KEY')
     cosmosdb_url = requireEnvVar('COSMOSDB_URL')
     cosmosdb_key = requireEnvVar('COSMOSDB_KEY')
 
-    # TODO: accept the question as user input
-    question = "What are profiles for?"
-
-    query_embedding = embedQuery(foundry_url, foundry_key, question)
+    query_embeddings = embedQuery(foundry_url, foundry_key, question)
     cosmos_container = getCosmosContainer(cosmosdb_url, cosmosdb_key, db_name="vectorial_ddbb_poc", container_name="container_for_vectors")
-    relevant_chunks = retrieveRelevantChunks(cosmos_container, query_embedding, top_k=5)
+    relevant_chunks = retrieveRelevantChunks(cosmos_container, query_embeddings, top_k=5)
     print(f"Retrieved {len(relevant_chunks)} relevant chunks from Cosmos DB\n")
 
     context = "\n\n".join(relevant_chunks)
@@ -86,8 +92,8 @@ def main():
     llm = AzureChatOpenAI(
         api_key=foundry_key,
         azure_endpoint=foundry_url,
-        api_version="2023-05-15",
-        azure_deployment="gpt-4.1",
+        api_version=config["chat_model"]["api_version"],
+        azure_deployment=config["chat_model"]["model"],
         temperature=0, # we want the model to stick to facts
     )
 
