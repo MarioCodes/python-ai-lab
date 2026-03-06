@@ -24,17 +24,21 @@ from langchain_openai import AzureChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 import os
+import configparser
+
+config = configparser.ConfigParser()
+config.read("settings.ini")
 
 def embedQuery(endpoint, key, text):
     client = AzureOpenAI(
         api_key=key,
         azure_endpoint=endpoint,
-        api_version="2023-05-15",
-        azure_deployment="text-embedding-3-large",
+        api_version=config["embedding_model"]["api_version"],
+        azure_deployment=config["embedding_model"]["model"],
     )
     response = client.embeddings.create(
         input=[text],
-        model="text-embedding-3-large"
+        model=config["embedding_model"]["model"]
     )
     return response.data[0].embedding
 
@@ -86,8 +90,8 @@ def main():
     llm = AzureChatOpenAI(
         api_key=foundry_key,
         azure_endpoint=foundry_url,
-        api_version="2023-05-15",
-        azure_deployment="gpt-4.1",
+        api_version=config["chat_model"]["api_version"],
+        azure_deployment=config["chat_model"]["model"],
         temperature=0, # we want the model to stick to facts
     )
 
