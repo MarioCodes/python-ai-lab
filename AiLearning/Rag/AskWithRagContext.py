@@ -77,9 +77,9 @@ def main():
     cosmosdb_url = requireEnvVar('COSMOSDB_URL')
     cosmosdb_key = requireEnvVar('COSMOSDB_KEY')
 
-    query_embedding = embedQuery(foundry_url, foundry_key, question)
+    query_embeddings = embedQuery(foundry_url, foundry_key, question)
     cosmos_container = getCosmosContainer(cosmosdb_url, cosmosdb_key, db_name="vectorial_ddbb_poc", container_name="container_for_vectors")
-    relevant_chunks = retrieveRelevantChunks(cosmos_container, query_embedding, top_k=5)
+    relevant_chunks = retrieveRelevantChunks(cosmos_container, query_embeddings, top_k=5)
     print(f"Retrieved {len(relevant_chunks)} relevant chunks from Cosmos DB\n")
 
     context = "\n\n".join(relevant_chunks)
