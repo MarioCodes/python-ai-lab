@@ -2,18 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>966f003a-8ad6-4d4e-b6c7-b2a14c784bbe</ProjectGuid>
-    <ProjectHome>
-    </ProjectHome>
-    <StartupFile>PromptEngineering.py</StartupFile>
+    <ProjectGuid>e5ed6e33-d080-4435-ba1d-5337668c271f</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>LangChain.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>AiLearning</Name>
-    <RootNamespace>PromptEngineering</RootNamespace>
-    <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
-    <InterpreterId>Global|VisualStudio|pythoncore-3.14-64</InterpreterId>
+    <Name>LangChain</Name>
+    <RootNamespace>LangChain</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -24,14 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="InsertAndQueryVectorDatabasee\QueryVectorialDB.py" />
-    <Compile Include="InsertAndQueryVectorDatabasee\InsertEmbeddings.py" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterpreterReference Include="Global|VisualStudio|pythoncore-3.14-64" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="InsertAndQueryVectorDatabasee\" />
+    <Compile Include="LangChain.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
