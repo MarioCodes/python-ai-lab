@@ -1,0 +1,14 @@
+<Solution>
+  <Project Path="LangChain/LangChain.pyproj" Type="888888a0-9f3d-457c-b088-3a5042f75d52" Id="e5ed6e33-d080-4435-ba1d-5337668c271f">
+    <Build Project="false" />
+  </Project>
+  <Project Path="OpenAI/OpenAI.pyproj" Type="888888a0-9f3d-457c-b088-3a5042f75d52" Id="53ca788c-e0de-4387-94a1-635f1d77225c">
+    <Build Project="false" />
+  </Project>
+  <Project Path="RAG/RAG.pyproj" Type="888888a0-9f3d-457c-b088-3a5042f75d52" Id="2a750806-655c-46d7-b3a1-8c4d173d71b3">
+    <Build Project="false" />
+  </Project>
+  <Project Path="VectorDatabases/VectorDatabases.pyproj" Type="888888a0-9f3d-457c-b088-3a5042f75d52" Id="a0ac7b41-b929-41c0-819e-d9e965fbef40">
+    <Build Project="false" />
+  </Project>
+</Solution>
