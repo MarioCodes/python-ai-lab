@@ -23,7 +23,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="InsertEmbeddings.py" />
-    <Compile Include="ManualCallToGetEmbeddingsFromText.py" />
     <Compile Include="QueryVectorialDB.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
