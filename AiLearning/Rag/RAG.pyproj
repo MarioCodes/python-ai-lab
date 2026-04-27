@@ -4,7 +4,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>2a750806-655c-46d7-b3a1-8c4d173d71b3</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>RAG.py</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="RAG.py" />
+    <Compile Include="AskWithRagContext.py" />
+    <Compile Include="ChunkFilesIntoCosmos.py" />
+    <Compile Include="SetupCosmosVectorContainer.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
