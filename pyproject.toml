@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "python-ai-lab"
+version = "1.0.0"
+description = "Programatic examples for learning AI"
+authors = ["Mario Codes <mariocodes1993@gmail.com>"]
+readme = "README.md"
+packages = [
+    { include = "openai_lab" },
+    { include = "langchain_lab" },
+    { include = "rag" },
+    { include = "vector_databases" },
+    { include = "agent_framework" },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.13,<3.14"
+python-dotenv = "^1.2.1"
+pandas = "^2.3.3"
+openai = "^2.11.0"
+langchain-openai = "^1.1.7"
+langchain = "^1.2.3"
+azure-cosmos = "^4.15.0"
+pypdf = "^6.7.5"
+langchain-community = "^0.4.1"
+langchain-text-splitters = "^1.1.1"
+langchain-experimental = "^0.4.1"
+agent-framework = "^1.2.0"
+
+[tool.poetry.scripts]
+# Agent Framework
+agent-run                = "agent_framework.run_agent_non_streaming:main"
+agent-run-stream         = "agent_framework.run_agent_streaming:main"
+
+# LangChain
+langchain-basics         = "langchain_lab.langchain_basics:main"
+langchain-lcel           = "langchain_lab.langchain_lcel:main"
+
+# OpenAI
+call-to-openai           = "openai_lab.call_to_openai:main"
+
+# RAG
+setup-cosmosdb-for-rag   = "rag.setup_cosmos_vector_container:main"
+insert-rag-files         = "rag.chunk_files_into_cosmos:main"
+ask-rag-question         = "rag.ask_with_rag_context:main"
+
+# Vector Databases
+insert-embeddings        = "vector_databases.insert_embeddings:main"
+query-embeddings         = "vector_databases.query_vectorial_db:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
