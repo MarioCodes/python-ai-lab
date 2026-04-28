@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>ddbde670-d146-4772-b639-9371d5e4315f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>MicrosoftAgentFramework.py</StartupFile>
+    <StartupFile>RunAgentNonStreaming.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +21,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="MicrosoftAgentFramework.py" />
+    <Compile Include="RunAgentStreaming.py" />
+    <Compile Include="RunAgentNonStreaming.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
