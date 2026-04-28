@@ -6,7 +6,7 @@
 
 Azure resources needed:
     - Azure Foundry with a deployed 'text-embedding-3-large' model
-    - Cosmos DB instance with a database and a container 
+    - Cosmos DB instance with a database and a container
 
 Config:
     - review the folder set to hold the knowledge base: "./Rag/knowledge_files/"
@@ -34,17 +34,10 @@ from datetime import datetime
 config = configparser.ConfigParser()
 config.read("settings.ini")
 
-# TODO: move this to helper class
-def requireEnvVar(name):
-    value = os.environ.get(name)
-    if not value:
-        raise EnvironmentError(f"{name} is not set")
-    return value
-
-foundry_url = requireEnvVar('FOUNDRY_URL') 
-foundry_key = requireEnvVar('FOUNDRY_KEY')
-cosmosdb_url = requireEnvVar('COSMOSDB_URL')
-cosmosdb_key = requireEnvVar('COSMOSDB_KEY')
+foundry_url = os.environ["FOUNDRY_URL"]
+foundry_key = os.environ["FOUNDRY_KEY"]
+cosmosdb_url = os.environ["COSMOSDB_URL"]
+cosmosdb_key = os.environ["COSMOSDB_KEY"]
 # /Retrieve global config
 
 def createEmbeddingsBatch(batchs):
@@ -88,7 +81,7 @@ def loadDocuments():
 
 def fixedSizeChunking(docs):
     chunk_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=500, 
+        chunk_size=500,
         chunk_overlap=100,
         separators=["\n\n", "\n", ". ", " ", ""]
     )
@@ -128,7 +121,7 @@ def cleanChunks(chunks):
         document_name = os.path.basename(source_path) if source_path else "unknown"
         document_date = datetime.fromtimestamp(os.path.getmtime(source_path)).isoformat() if source_path and os.path.exists(source_path) else "unknown"
         chunk_metadata.append({"document_name": document_name, "document_date": document_date})
-    
+
     print("\n\nCLEANED CHUNK TEXTS:")
     for clean_chunk in clean_chunks:
         print(f"{repr(clean_chunk)}\n")

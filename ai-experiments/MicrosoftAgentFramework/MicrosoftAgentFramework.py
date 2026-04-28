@@ -16,15 +16,9 @@ from azure.identity import AzureCliCredential
 import asyncio
 import os
 
-def requireEnvVar(name):
-    value = os.environ.get(name)
-    if not value:
-        raise EnvironmentError(f"{name} is not set")
-    return value
-
 async def main():
     # example: "https://your-foundry-project.services.ai.azure.com/api/projects/your-project-name"
-    foundry_url = requireEnvVar('FOUNDRY_POC_URL')
+    foundry_url = os.environ["FOUNDRY_POC_URL"]
 
     credential = AzureCliCredential()
     client = FoundryChatClient(
