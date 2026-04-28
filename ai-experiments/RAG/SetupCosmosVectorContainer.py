@@ -20,15 +20,10 @@ import os
 DB_NAME = "vectorial_ddbb_poc"
 CONTAINER_NAME = "container_for_vectors"
 
-def requireEnvVar(name):
-    value = os.environ.get(name)
-    if not value:
-        raise EnvironmentError(f"{name} is not set")
-    return value
 
 def main():
-    cosmosdb_url = requireEnvVar('COSMOSDB_URL')
-    cosmosdb_key = requireEnvVar('COSMOSDB_KEY')
+    cosmosdb_url = os.environ["COSMOSDB_URL"]
+    cosmosdb_key = os.environ["COSMOSDB_KEY"]
 
     client = CosmosClient(cosmosdb_url, cosmosdb_key)
     database = client.get_database_client(DB_NAME)

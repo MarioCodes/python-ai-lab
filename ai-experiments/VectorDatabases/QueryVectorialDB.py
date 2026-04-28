@@ -1,4 +1,4 @@
-"""We have a text that we want to be able to search into a vectorial database for similarity (CosmosDB)   
+"""We have a text that we want to be able to search into a vectorial database for similarity (CosmosDB)
 1st - we get the embeddings for 'text' with the SAME MODEL as the one used to upload the content into Cosmos DB
 2nd - we search for proximity using the vectors and output the original text
 
@@ -37,8 +37,8 @@ def queryFromCosmosDB(db_endpoint, db_key, db_name, container_name, sow_query_em
 
     query = f"""
         SELECT TOP {top_k}
-            c.id, 
-            c.text, 
+            c.id,
+            c.text,
             c.embedding,
             VectorDistance(c.embedding, @query_vector) AS cosine_distance
         FROM c
@@ -52,18 +52,12 @@ def queryFromCosmosDB(db_endpoint, db_key, db_name, container_name, sow_query_em
     results = list(container.query_items(query=query, parameters=parameters, enable_cross_partition_query=True))
     return results
 
-def requireEnvVar(name):
-    value = os.environ.get(name)
-    if not value:
-        raise EnvironmentError(f"{name} is not set")
-    return value
-
 def main():
     # setup
-    foundry_url = requireEnvVar('FOUNDRY_URL')
-    foundry_key = requireEnvVar('FOUNDRY_KEY')
-    cosmosdb_url = requireEnvVar('COSMOSDB_URL')
-    cosmosdb_key = requireEnvVar('COSMOSDB_KEY')
+    foundry_url = os.environ["FOUNDRY_URL"]
+    foundry_key = os.environ["FOUNDRY_KEY"]
+    cosmosdb_url = os.environ["COSMOSDB_URL"]
+    cosmosdb_key = os.environ["COSMOSDB_KEY"]
 
     # create embeddings for the text
     text = "Park"
