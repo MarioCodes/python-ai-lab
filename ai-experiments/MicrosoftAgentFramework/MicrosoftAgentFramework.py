@@ -38,7 +38,7 @@ async def main():
         instructions="You are a helpful assistant that provides information about Microsoft Agent Framework. Answer questions concisely and accurately."
     )
 
-    result = await agent.run("What's the largest city in the world?")
+    result = await agent.run("What's Microsoft Agent Framework?")
     print(f"Agent: {result}")
 
 asyncio.run(main())
