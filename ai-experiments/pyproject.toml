@@ -9,10 +9,11 @@ packages = [
 	{ include = "OpenAI" },
 	{ include = "RAG" },
 	{ include = "LangChain" },
+	{ include = "MicrosoftAgentFramework" },
 ]
 
 [tool.poetry.dependencies]
-python = "^3.14"
+python = ">=3.13,<3.14"
 python-dotenv = "^1.2.1"
 dotenv = "^0.9.9"
 pandas = "^2.3.3"
@@ -24,6 +25,7 @@ pypdf = "^6.7.5"
 langchain-community = "^0.4.1"
 langchain-text-splitters = "^1.1.1"
 langchain-experimental = "^0.4.1"
+agent-framework = "^1.2.0"
 
 [tool.poetry.scripts]
 langchain = "LangChain.LangChain:main"
@@ -39,6 +41,8 @@ insert-manual-embeddings = "VectorDatabases.InsertEmbeddings:main"
 query-manual-embeddings = "VectorDatabases.QueryVectorialDB:main"
 
 manually-get-embeddings = "WIP.ManualCallToGetEmbeddingsFromText:main"
+
+agent-framework = "MicrosoftAgentFramework.MicrosoftAgentFramework:main"
 
 [build-system]
 requires = ["poetry-core"]
