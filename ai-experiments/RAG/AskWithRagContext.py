@@ -60,22 +60,16 @@ def retrieveRelevantChunks(container, query_embedding, top_k=5):
     results = list(container.query_items(query=query, parameters=parameters, enable_cross_partition_query=True))
     return [r["original_text"] for r in results]
 
-def requireEnvVar(name):
-    value = os.environ.get(name)
-    if not value:
-        raise EnvironmentError(f"{name} is not set")
-    return value
-
 def main():
     question = input("Ask a question using RAG: ")
     if not question.strip():
         print("No question provided.")
         return
 
-    foundry_url = requireEnvVar('FOUNDRY_URL')
-    foundry_key = requireEnvVar('FOUNDRY_KEY')
-    cosmosdb_url = requireEnvVar('COSMOSDB_URL')
-    cosmosdb_key = requireEnvVar('COSMOSDB_KEY')
+    foundry_url = os.environ["FOUNDRY_URL"]
+    foundry_key = os.environ["FOUNDRY_KEY"]
+    cosmosdb_url = os.environ["COSMOSDB_URL"]
+    cosmosdb_key = os.environ["COSMOSDB_KEY"]
 
     query_embeddings = embedQuery(foundry_url, foundry_key, question)
     cosmos_container = getCosmosContainer(cosmosdb_url, cosmosdb_key, db_name="vectorial_ddbb_poc", container_name="container_for_vectors")

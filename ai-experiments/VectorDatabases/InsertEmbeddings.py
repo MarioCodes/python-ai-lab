@@ -4,7 +4,7 @@
 
 Azure resources needed:
     - Azure Foundry with a deployed 'text-embedding-3-large' model
-    - Cosmos DB instance with a database and a container 
+    - Cosmos DB instance with a database and a container
 
 Config:
     - review the model used to embed the query "text-embedding-3-large" and check it is deployed in your Azure Foundry
@@ -48,17 +48,11 @@ def uploadToCosmosDB(endpoint, key, db_name, container_name, item):
     except Exception as e:
         return f"Error uploading item: {e}"
 
-def requireEnvVar(name):
-    value = os.environ.get(name)
-    if not value:
-        raise EnvironmentError(f"{name} is not set")
-    return value
-
 def main():
-    foundry_url = requireEnvVar('FOUNDRY_URL')
-    foundry_key = requireEnvVar('FOUNDRY_KEY')
-    cosmosdb_url = requireEnvVar('COSMOSDB_URL')
-    cosmosdb_key = requireEnvVar('COSMOSDB_KEY')
+    foundry_url = os.environ["FOUNDRY_URL"]
+    foundry_key = os.environ["FOUNDRY_KEY"]
+    cosmosdb_url = os.environ["COSMOSDB_URL"]
+    cosmosdb_key = os.environ["COSMOSDB_KEY"]
 
     # create embeddings for the text
     text = "A dog walks in the park"
