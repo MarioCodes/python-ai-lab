@@ -42,7 +42,7 @@ query-manual-embeddings = "VectorDatabases.QueryVectorialDB:main"
 
 manually-get-embeddings = "WIP.ManualCallToGetEmbeddingsFromText:main"
 
-agent-framework = "MicrosoftAgentFramework.MicrosoftAgentFramework:main"
+agent-framework = "MicrosoftAgentFramework.RunAgentNonStreaming:main"
 
 [build-system]
 requires = ["poetry-core"]

@@ -32,6 +32,7 @@ async def main():
         instructions="You are a helpful assistant that provides information about Microsoft Agent Framework. Answer questions concisely and accurately."
     )
 
+    # non-streaming way: get the complete response at once
     result = await agent.run("What's Microsoft Agent Framework?")
     print(f"Agent: {result}")
 
