@@ -13,7 +13,9 @@
  
 ---
  
-A collection of practical, runnable Python examples that walk you through core AI concepts (e.g. OpenAI API calls, RAG with Azure Cosmos DB, AI agents with Microsoft Agent Framework. Each module is self-contained and ready to run with `poetry run`
+A collection of practical, runnable Python examples that walk you through core AI concepts (e.g. OpenAI API calls, RAG with Azure Cosmos DB, AI agents with Microsoft Agent Framework). 
+
+Each module is self-contained and ready to run with `poetry run`
  
 [Modules](#modules) · [Getting Started](#getting-started)
  
