@@ -3,14 +3,15 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>ddbde670-d146-4772-b639-9371d5e4315f</ProjectGuid>
-    <ProjectHome>.</ProjectHome>
-    <StartupFile>RunAgentNonStreaming.py</StartupFile>
+    <ProjectHome>
+    </ProjectHome>
+    <StartupFile>run_agent_non_streaming.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>MicrosoftAgentFramework</Name>
-    <RootNamespace>MicrosoftAgentFramework</RootNamespace>
+    <Name>agent_framework_lab</Name>
+    <RootNamespace>agent_framework</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,8 +22,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="RunAgentStreaming.py" />
-    <Compile Include="RunAgentNonStreaming.py" />
+    <Compile Include="run_agent_streaming.py" />
+    <Compile Include="run_agent_non_streaming.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

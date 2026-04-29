@@ -9,7 +9,7 @@ packages = [
     { include = "langchain_lab" },
     { include = "rag" },
     { include = "vector_databases" },
-    { include = "agent_framework" },
+    { include = "agent_framework_lab" },
 ]
 
 [tool.poetry.dependencies]
@@ -28,8 +28,8 @@ agent-framework = "^1.2.0"
 
 [tool.poetry.scripts]
 # Agent Framework
-agent-run                = "agent_framework.run_agent_non_streaming:main"
-agent-run-stream         = "agent_framework.run_agent_streaming:main"
+agent-run                = "agent_framework_lab.run_agent_non_streaming:main"
+agent-run-stream         = "agent_framework_lab.run_agent_streaming:main"
 
 # LangChain
 langchain-basics         = "langchain_lab.langchain_basics:main"
