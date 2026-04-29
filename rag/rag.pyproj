@@ -10,8 +10,8 @@
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>RAG</Name>
-    <RootNamespace>RAG</RootNamespace>
+    <Name>rag</Name>
+    <RootNamespace>rag</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,9 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AskWithRagContext.py" />
-    <Compile Include="ChunkFilesIntoCosmos.py" />
-    <Compile Include="SetupCosmosVectorContainer.py" />
+    <Compile Include="ask_with_rag_context.py" />
+    <Compile Include="chunk_files_into_cosmos.py" />
+    <Compile Include="setup_cosmos_vector_container.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

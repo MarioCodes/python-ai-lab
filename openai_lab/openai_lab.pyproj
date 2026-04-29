@@ -2,16 +2,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>e5ed6e33-d080-4435-ba1d-5337668c271f</ProjectGuid>
-    <ProjectHome>.</ProjectHome>
+    <ProjectGuid>53ca788c-e0de-4387-94a1-635f1d77225c</ProjectGuid>
+    <ProjectHome>
+    </ProjectHome>
     <StartupFile>
     </StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>LangChain</Name>
-    <RootNamespace>LangChain</RootNamespace>
+    <Name>openai_lab</Name>
+    <RootNamespace>openai</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,8 +23,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="LangChain.py" />
-    <Compile Include="LangChainExpressionLanguage.py" />
+    <Compile Include="call_to_openai.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

@@ -1409,20 +1409,6 @@ docs = ["pydoctor (>=25.4.0)"]
 test = ["pytest"]
 
 [[package]]
-name = "dotenv"
-version = "0.9.9"
-description = "Deprecated package"
-optional = false
-python-versions = "*"
-groups = ["main"]
-files = [
-    {file = "dotenv-0.9.9-py2.py3-none-any.whl", hash = "sha256:29cf74a087b31dafdb5a446b6d7e11cbce8ed2741540e2339c69fbef92c94ce9"},
-]
-
-[package.dependencies]
-python-dotenv = "*"
-
-[[package]]
 name = "durabletask"
 version = "1.4.0"
 description = "A Durable Task Client SDK for Python"
@@ -5837,4 +5823,4 @@ cffi = ["cffi (>=1.17,<2.0) ; platform_python_implementation != \"PyPy\" and pyt
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13,<3.14"
-content-hash = "062d7f1e68ebf0eec65ab9b864d8a1218849f3caf6af4b1dbfde0f5df77a062e"
+content-hash = "700e882015fcc5c26307867a6a0f0350cf35e5c48a5f68328a24069103c43915"
