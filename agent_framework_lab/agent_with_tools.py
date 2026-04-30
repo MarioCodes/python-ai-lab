@@ -1,5 +1,5 @@
 """Description:
-    This is a simple example of how to use the Microsoft Agent Framework to create an agent
+    This is an example of how to create an Agent with access to tools.
 
 Azure resources needed:
     - Azure Foundry with a deployed 'gpt-5-nano' model
