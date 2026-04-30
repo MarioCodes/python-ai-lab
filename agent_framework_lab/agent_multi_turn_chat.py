@@ -1,5 +1,5 @@
 """Description:
-    This is the most basic example of how to use the Microsoft Agent Framework to create an agent
+    This is an example of how to create an Agent with multi-turn conversation capabilities.
 
 Azure resources needed:
     - Azure Foundry with a deployed 'gpt-5-nano' model
@@ -30,12 +30,19 @@ async def _async_main():
     agent = Agent(
         client=client,
         name="HelloAgent",
-        instructions="You are a helpful assistant that provides information about Microsoft Agent Framework. Answer questions concisely and accurately."
+        instructions="You are a helpful assistant. Keep your answers brief"
     )
 
-    # non-streaming way: get the complete response at once
-    result = await agent.run("What's Microsoft Agent Framework?")
-    print(f"Agent: {result.text}")
+    # create a session to maintain conversation history
+    session = agent.create_session()
+
+    # first turn
+    result = await agent.run("My name is Mario and I love hiking", session=session)
+    print(f"Agent turn 1: {result.text}\n")
+
+    # second turn - agent should remember the information from the first turn
+    result = await agent.run("What do you remember about me?", session=session)
+    print(f"Agent turn 2: {result.text}")
 
 def main():
     asyncio.run(_async_main())
