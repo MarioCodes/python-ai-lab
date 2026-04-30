@@ -10,6 +10,7 @@ Config:
             so the code below has to be set to 'gpt-5.4-nano-1'
     - set FOUNDRY_URL as system var. This is the URL you get when you deploy models in your Foundry
 """
+from agent_framework import Agent
 from agent_framework.foundry import FoundryChatClient
 from azure.identity import AzureCliCredential
 
@@ -20,14 +21,14 @@ async def _async_main():
     # example: "https://your-foundry-project.services.ai.azure.com/api/projects/your-project-name"
     foundry_url = os.environ["FOUNDRY_URL"]
 
-    credential = AzureCliCredential()
     client = FoundryChatClient(
         project_endpoint=foundry_url,
         model="gpt-5.4-nano-1",
-        credential=credential
+        credential=AzureCliCredential()
     )
 
-    agent = client.as_agent(
+    agent = Agent(
+        client=client,
         name="HelloAgent",
         instructions="You are a helpful assistant that provides information about Microsoft Agent Framework. Answer questions concisely and accurately."
     )

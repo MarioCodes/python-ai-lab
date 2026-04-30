@@ -20,7 +20,6 @@ from pydantic import Field
 import asyncio
 import os
 
-# <define_tool>
 @tool(approval_mode="never_require")
 def get_weather(
     location: Annotated[str, Field(description="The location to get the weather for.")],
@@ -29,7 +28,6 @@ def get_weather(
     # In a real implementation, you would call a weather API here.
     # For this example, we'll just return a dummy weather report.
     return f"The current weather in {location} is sunny with a high of 25°C and a low of 15°C."
-# </define_tool>
 
 async def _async_main():
     # example: "https://your-foundry-project.services.ai.azure.com/api/projects/your-project-name"
