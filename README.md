@@ -74,9 +74,9 @@ poetry run ask-rag-question          # Ask questions against your docs
 Getting started with Microsoft's Agent Framework for building AI agents on Azure AI Foundry. Includes both synchronous and streaming patterns.
  
 ~~~ bash
-poetry run agent-framework          # first agent. Non-streaming (full response at once)
-poetry run agent-framework-stream   # first agent. Streaming (token-by-token output)
+poetry run agent-framework-chat-stream   # first agent. It responds to a single prompt with Streaming (token-by-token output)
 poetry run agent-framework-tool     # improved agent with custom tools usage
+poetry run agent-framework-multi-chat # multi-chat agent. You can have a conversation in turns and it stores session
 ~~~
  
 ---
