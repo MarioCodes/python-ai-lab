@@ -23,6 +23,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="agent_multi_turn_chat.py" />
+    <Compile Include="agent_memory_persistence.py" />
     <Compile Include="agent_with_tools.py" />
     <Compile Include="agent_streaming_chat.py" />
   </ItemGroup>
