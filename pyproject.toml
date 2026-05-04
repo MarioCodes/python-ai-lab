@@ -31,6 +31,7 @@ agent-framework = "^1.2.0"
 agent-framework-chat-stream = "agent_framework_lab.agent_streaming_chat:main"
 agent-framework-tool = "agent_framework_lab.agent_with_tools:main"
 agent-framework-multi-chat = "agent_framework_lab.agent_multi_turn_chat:main"
+agent-framework-persistence = "agent_framework_lab.agent_memory_persistence:main"
 
 # LangChain
 langchain-basics         = "langchain_lab.langchain_basics:main"

@@ -1,3 +1,10 @@
+from agent_framework import Agent
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import AzureCliCredential
+
+import asyncio
+import os
+
 """Description:
     This is an example of how to create an Agent with multi-turn conversation capabilities.
 
@@ -10,12 +17,6 @@ Config:
             so the code below has to be set to 'gpt-5.4-nano-1'
     - set FOUNDRY_URL as system var. This is the URL you get when you deploy models in your Foundry
 """
-from agent_framework import Agent
-from agent_framework.foundry import FoundryChatClient
-from azure.identity import AzureCliCredential
-
-import asyncio
-import os
 
 async def _async_main():
     # example: "https://your-foundry-project.services.ai.azure.com/api/projects/your-project-name"
