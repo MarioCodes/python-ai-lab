@@ -77,6 +77,7 @@ Getting started with Microsoft's Agent Framework for building AI agents on Azure
 poetry run agent-framework-chat-stream   # first agent. It responds to a single prompt with Streaming (token-by-token output)
 poetry run agent-framework-tool     # improved agent with custom tools usage
 poetry run agent-framework-multi-chat # multi-chat agent. You can have a conversation in turns and it stores session
+poetry run agent-framework-persistence # agent with memory and persistence
 ~~~
  
 ---
